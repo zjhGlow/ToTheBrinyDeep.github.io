@@ -477,7 +477,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: Consolas, monospace;
   font-size: 1em
 }
 
@@ -1046,7 +1046,7 @@ html {
 .left-col #header .header-author {
   text-align: center;
   margin: .67em 0;
-  font-family: consolas, serif;
+  font-family: Consolas, serif;
   font-size: 30px;
   transition: .3s
 }
@@ -3599,7 +3599,7 @@ pre .id {
   .header-author {
     text-align: center;
     margin: .67em 0;
-    font-family: consolas, serif;
+    font-family: Consolas, serif;
     font-size: 30px;
     transition: .3s
   }
