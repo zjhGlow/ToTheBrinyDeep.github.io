@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: github | ToTheBrinyDeep</title>
+  <title>数据类型及其判断 | ToTheBrinyDeep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ToTheBrinyDeep">
-<meta property="og:url" content="http://yoursite.com/tags/github/index.html">
+  <meta name="description" content="数据类型及其判断">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据类型及其判断">
+<meta property="og:url" content="http://yoursite.com/2020/06/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E5%88%A4%E6%96%AD/index.html">
 <meta property="og:site_name" content="ToTheBrinyDeep">
+<meta property="og:description" content="数据类型及其判断">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-05T10:02:24.260Z">
+<meta property="article:modified_time" content="2020-06-07T13:27:06.506Z">
 <meta property="article:author" content="ToTheBrinyDeep">
 <meta name="twitter:card" content="summary">
   
@@ -138,60 +142,192 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-数据类型及其判断" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/github%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8A%E4%BC%A0%E4%B8%8E%E7%94%9F%E6%88%90html%E9%A2%84%E8%A7%88/" class="archive-article-date">
-  	<time datetime="2020-05-30T02:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/github%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8A%E4%BC%A0%E4%B8%8E%E7%94%9F%E6%88%90html%E9%A2%84%E8%A7%88/">github可视化上传与生成html预览</a>
+    <h1 class="article-title" itemprop="name">
+      数据类型及其判断
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2020/06/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E5%88%A4%E6%96%AD/" class="archive-article-date">
+  	<time datetime="2020-06-05T10:02:24.260Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="数据类型及其判断"><a href="#数据类型及其判断" class="headerlink" title="数据类型及其判断"></a>数据类型及其判断</h1><a id="more"></a>
 
-          
+<h2 id="JavaScript数据类型"><a href="#JavaScript数据类型" class="headerlink" title="JavaScript数据类型"></a>JavaScript数据类型</h2><p>　基本数据类型：String、Number、Boolean、Null、Undefined、Symbol（ES6）<br>　　名值存储在栈内存中<br>　引用数据类型：Object类（有常规名值对的无序对象{a:1}，数组，以及函数等）<br>　　名存在栈内存中，值存在于堆内存中，但是栈内存会提供一个引用的地址指向堆内存中的值</p>
+<h2 id="如何判断数据类型"><a href="#如何判断数据类型" class="headerlink" title="如何判断数据类型"></a>如何判断数据类型</h2><h3 id="1-typeof及其实现原理"><a href="#1-typeof及其实现原理" class="headerlink" title="1.typeof及其实现原理"></a>1.typeof及其实现原理</h3><p>　　typeof 一般被用于判断一个变量的类型，我们可以利用 typeof 来判断number, string, boolean, undefined, symbol, object, function这七种类型，这种判断能帮助我们搞定一些问题，比如在判断不是 object 类型的数据的时候，typeof能比较清楚的告诉我们具体是哪一类的类型。但是，很遗憾的一点是，typeof 在判断一个 object的数据的时候只能告诉我们这个数据是 object, 而不能细致的具体到是哪一种 object</p>
+<p>　　JS类型值是存在32 bit单元里，32位有1-3位表示类型值，其它位表示真实值</p>
+<p>　　　000：对象<br>　　　010：浮点数<br>　　　100：字符串<br>　　　110：布尔<br>　　　1：整数</p>
+<p>　　但是, 对于 undefined 和 null 来说，这两个值的信息存储是有点特殊的。</p>
+<p>　　null：所有机器码均为0<br>　　undefined：用 −2^30 整数来表示<br>　　所以，typeof 在判断 null 的时候就出现问题了，由于 null 的所有机器码均为0，因此直接被当做了对象来看待。</p>
+<p>　　很有意思的一点：Number(null)===0</p>
+<p>　　<strong>综上，最好是用 typeof 来判断基本数据类型（包括symbol），避免对 null 的判断。</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">    <span class="keyword">typeof</span> <span class="number">123</span>, <span class="comment">//"number"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="string">'dsfsf'</span>, <span class="comment">//"string"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="literal">false</span>, <span class="comment">//"boolean"</span></span><br><span class="line">    <span class="keyword">typeof</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="comment">//"object"</span></span><br><span class="line">    <span class="keyword">typeof</span> &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">c</span>:<span class="number">3</span>&#125;, <span class="comment">//"object"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;, <span class="comment">//"function"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="literal">undefined</span>, <span class="comment">//"undefined"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="literal">null</span>, <span class="comment">//"object"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Date</span>(), <span class="comment">//"object"</span></span><br><span class="line">    <span class="keyword">typeof</span> /^[a-zA-Z]&#123;<span class="number">5</span>,<span class="number">20</span>&#125;$/, <span class="comment">//"object"</span></span><br><span class="line">    <span class="keyword">typeof</span> <span class="keyword">new</span> <span class="built_in">Error</span>() <span class="comment">//"object"</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
+<h3 id="2-instanceof及其实现原理"><a href="#2-instanceof及其实现原理" class="headerlink" title="2.instanceof及其实现原理"></a>2.instanceof及其实现原理</h3><p>　　instanceof运算符需要指定一个构造函数，或者说指定一个特定的类型，它用来判断这个构造函数的原型是否在给定对象的原型链上<br>　　instanceof 主要的实现原理就是只要右边变量的 prototype 在左边变量的原型链上即可。因此，instanceof 在查找的过程中会遍历左边变量的原型链，直到找到右边变量的 prototype，如果查找失败，则会返回 false，告诉我们左边变量并非是右边变量的实例。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">    <span class="number">123</span> <span class="keyword">instanceof</span> <span class="built_in">Number</span>, <span class="comment">//false</span></span><br><span class="line">    <span class="string">'dsfsf'</span> <span class="keyword">instanceof</span> <span class="built_in">String</span>, <span class="comment">//false</span></span><br><span class="line">    <span class="literal">false</span> <span class="keyword">instanceof</span> <span class="built_in">Boolean</span>, <span class="comment">//false</span></span><br><span class="line">    [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>] <span class="keyword">instanceof</span> <span class="built_in">Array</span>, <span class="comment">//true</span></span><br><span class="line">    &#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">c</span>:<span class="number">3</span>&#125; <span class="keyword">instanceof</span> <span class="built_in">Object</span>, <span class="comment">//true</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125; <span class="keyword">instanceof</span> <span class="built_in">Function</span>, <span class="comment">//true</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Date</span>() <span class="keyword">instanceof</span> <span class="built_in">Date</span>, <span class="comment">//true</span></span><br><span class="line">    /^[a-zA-Z]&#123;<span class="number">5</span>,<span class="number">20</span>&#125;$/ <span class="keyword">instanceof</span> <span class="built_in">RegExp</span>, <span class="comment">//true</span></span><br><span class="line">    <span class="keyword">new</span> <span class="built_in">Error</span>() <span class="keyword">instanceof</span> <span class="built_in">Error</span> <span class="comment">//true</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>　　Number，String，Boolean没有检测出他们的类型，但是如果使用下面的写法则可以检测出来：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">123</span>);</span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'dsfsf'</span>);</span><br><span class="line"><span class="keyword">var</span> boolean = <span class="keyword">new</span> <span class="built_in">Boolean</span>(<span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+
+<p>　　instanceof还能检测出多层继承的关系</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="built_in">console</span>.log(John <span class="keyword">instanceof</span> Student); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(John <span class="keyword">instanceof</span> Person);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>　　注意：instanceof无法检测null和undefined，这是因为它们的类型就是自己本身</p>
+<p>　　<strong>综上，可以用 instanceof 来判断引用数据类型</strong></p>
+<h3 id="3-constructor"><a href="#3-constructor" class="headerlink" title="3.constructor"></a>3.constructor</h3><p>　　constructor是prototype对象上的属性，指向构造函数。根据实例对象寻找属性的顺序，若实例对象上没有实例属性或方法时，就去原型链上寻找，因此，实例对象也是能使用constructor属性的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> Tom = <span class="keyword">new</span> Person();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(</span><br><span class="line">    Tom.constructor==Person,</span><br><span class="line">    num.constructor==<span class="built_in">Number</span>,</span><br><span class="line">    str.constructor==<span class="built_in">String</span>,</span><br><span class="line">    bool.constructor==<span class="built_in">Boolean</span>,</span><br><span class="line">    arr.constructor==<span class="built_in">Array</span>,</span><br><span class="line">    json.constructor==<span class="built_in">Object</span>,</span><br><span class="line">    func.constructor==<span class="built_in">Function</span>,</span><br><span class="line">    date.constructor==<span class="built_in">Date</span>,</span><br><span class="line">    reg.constructor==<span class="built_in">RegExp</span>,</span><br><span class="line">    error.constructor==<span class="built_in">Error</span></span><br><span class="line">);</span><br><span class="line"><span class="comment">// 所有结果均为true</span></span><br></pre></td></tr></table></figure>
+
+<p>　　注意：constructor无法检测null和undefined，这是因为它们没有constructor属性</p>
+<p>　　不过使用constructor也不是保险的，因为constructor属性是可以被修改的，会导致检测出的结果不正确，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">Student.prototype = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="keyword">var</span> John = <span class="keyword">new</span> Student();</span><br><span class="line"><span class="built_in">console</span>.log(John.constructor==Student); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(John.constructor==Person);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p>　　在上面的例子中，Student原型中的constructor被修改为指向到Person，导致检测不出实例对象John真实的构造函数。</p>
+<p>　　同时，使用instaceof和construcor,被判断的array必须是在当前页面声明的！比如，一个页面（父页面）有一个框架，框架中引用了一个页面（子页面），在子页面中声明了一个array，并将其赋值给父页面的一个变量，这时判断该变量，Array == object.constructor;会返回false；<br>　　原因：<br>　　1、array属于引用型数据，在传递过程中，仅仅是引用地址的传递。<br>　　2、每个页面的Array原生对象所引用的地址是不一样的，在子页面声明的array，所对应的构造函数，是子页面的Array对象；父页面来进行判断，使用的Array并不等于子页面的Array；切记，不然很难跟踪问题！</p>
+<h3 id="4-Object-prototype-toString-call"><a href="#4-Object-prototype-toString-call" class="headerlink" title="4.Object.prototype.toString.call()"></a>4.Object.prototype.toString.call()</h3><p>　　Object.prototype.toString.call(变量)输出的是一个字符串，字符串里有一个数组，第一个参数是Object，第二个参数就是这个变量的类型(可检测所有类型)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> toString = <span class="built_in">Object</span>.prototype.toString;</span><br><span class="line"></span><br><span class="line">toString.call(<span class="number">123</span>); <span class="comment">//"[object Number]"</span></span><br><span class="line">toString.call(<span class="string">'abcdef'</span>); <span class="comment">//"[object String]"</span></span><br><span class="line">toString.call(<span class="literal">true</span>); <span class="comment">//"[object Boolean]"</span></span><br><span class="line">toString.call([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]); <span class="comment">//"[object Array]"</span></span><br><span class="line">toString.call(&#123;<span class="attr">name</span>:<span class="string">'wenzi'</span>, <span class="attr">age</span>:<span class="number">25</span>&#125;); <span class="comment">//"[object Object]"</span></span><br><span class="line">toString.call(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="built_in">console</span>.log(<span class="string">'this is function'</span>); &#125;); <span class="comment">//"[object Function]"</span></span><br><span class="line">toString.call(<span class="literal">undefined</span>); <span class="comment">//"[object Undefined]"</span></span><br><span class="line">toString.call(<span class="literal">null</span>); <span class="comment">//"[object Null]"</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Date</span>()); <span class="comment">//"[object Date]"</span></span><br><span class="line">toString.call(<span class="regexp">/^[a-zA-Z]&#123;5,20&#125;$/</span>); <span class="comment">//"[object RegExp]"</span></span><br><span class="line">toString.call(<span class="keyword">new</span> <span class="built_in">Error</span>()); <span class="comment">//"[object Error]"</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="封装一个函数来实现类型判断"><a href="#封装一个函数来实现类型判断" class="headerlink" title="封装一个函数来实现类型判断"></a>封装一个函数来实现类型判断</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gettype</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> type = <span class="keyword">typeof</span> obj;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (type !== <span class="string">'object'</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> type;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//如果不是object类型的数据，直接用typeof就能判断出来</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">//如果是object类型数据，准确判断类型必须使用Object.prototype.toString.call(obj)的方式才能判断</span></span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj).replace(<span class="regexp">/^\[object (\S+)\]$/</span>, <span class="string">'$1'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/05/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%8F%8A%E5%85%B6%E5%88%A4%E6%96%AD/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/06/06/%E8%AF%BB%E7%A8%8B%E5%BA%8F%E5%86%99%E8%BE%93%E5%87%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          读程序写输出
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/06/04/%E5%BC%82%E6%AD%A5%E5%92%8C%E5%8D%95%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">异步和单线程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#数据类型及其判断"><span class="toc-number">1.</span> <span class="toc-text">数据类型及其判断</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#JavaScript数据类型"><span class="toc-number">1.1.</span> <span class="toc-text">JavaScript数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#如何判断数据类型"><span class="toc-number">1.2.</span> <span class="toc-text">如何判断数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-typeof及其实现原理"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.typeof及其实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-instanceof及其实现原理"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.instanceof及其实现原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-constructor"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Object-prototype-toString-call"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.Object.prototype.toString.call()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#封装一个函数来实现类型判断"><span class="toc-number">1.2.5.</span> <span class="toc-text">封装一个函数来实现类型判断</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,9 +350,9 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

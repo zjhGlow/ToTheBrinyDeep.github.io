@@ -1120,12 +1120,12 @@ html {
 
 .article-entry .highlight,
 .article-entry pre {
-  background: #272822;
+  background: #f5f5f5;
   margin: 10px 0;
   padding: 10px;
   overflow: auto;
   color: #fff;
-  font-size: .9em;
+  font-size: 1.02em;
   line-height: 22.400000000000002px
 }
 
@@ -1137,7 +1137,7 @@ html {
 
 .article-entry code,
 .article-entry pre {
-  font-family: Source Code Pro, Consolas, Monaco, Menlo, monospace
+  font-family: Consolas
 }
 
 .article-entry code {
@@ -1150,11 +1150,11 @@ html {
   background: none;
   text-shadow: none;
   padding: 0;
-  color: #fff
+  color: #000
 }
 
 .article-entry .highlight {
-  border-radius: 4px
+  border-radius: 5px
 }
 
 .article-entry .highlight pre {
@@ -1203,7 +1203,7 @@ html {
 }
 
 .article-entry .highlight .line {
-  color: #fff;
+  color: #201515;
   min-height: 19px
 }
 
@@ -1263,13 +1263,16 @@ html {
 }
 
 pre .comment {
-  color: #75715e
+  color: #a7cca8
+}
+
+pre .function .keyword{
+  color: #7e57c2;
 }
 
 pre .class .params,
-pre .function .keyword,
 pre .keyword {
-  color: #66d9ef
+  color: #8E1DA1
 }
 
 pre .css .value,
@@ -1277,7 +1280,7 @@ pre .doctype,
 pre .function,
 pre .params,
 pre .tag {
-  color: #fff
+  color: #e57373
 }
 
 pre .at_rule,
@@ -1286,7 +1289,7 @@ pre .css~* .tag,
 pre .preprocessor,
 pre .preprocessor .keyword,
 pre .title {
-  color: #f92672
+  color: #a01cb8
 }
 
 pre .attribute,
@@ -1294,12 +1297,15 @@ pre .built_in,
 pre .class,
 pre .css~* .class,
 pre .function .title {
-  color: #a6e22e
+  color: #e21d1d
 }
 
-pre .string,
+pre .string {
+  color: #519657
+}
+
 pre .value {
-  color: #e6db74
+  color: #e62020
 }
 
 pre .number {
@@ -1312,7 +1318,7 @@ pre .id {
 }
 
 #header .tagcloud a {
-  color: #fff
+  color: #000
 }
 
 .tagcloud a {
@@ -1320,7 +1326,7 @@ pre .id {
   text-decoration: none;
   font-weight: 400;
   font-size: 10px;
-  color: #fff;
+  color: #000;
   height: 18px;
   line-height: 18px;
   float: left;
@@ -2031,8 +2037,8 @@ pre .id {
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 16px;
-  left: 2px;
+  top: 15px;
+  left: 1px;
   -webkit-transform: translateY(-50%);
   border-radius: 100%;
   background-color: #91c0f1;
@@ -2472,13 +2478,13 @@ pre .id {
   padding: 5px 15px;
   overflow-x: auto;
   color: #657b83;
-  border: 1px solid #ccc;
-  text-shadow: 0 1px #444;
-  font-family: Menlo, Monaco, Andale Mono, lucida console, Courier New, monospace
+  /* border: 1px solid #ccc; */
+  /* text-shadow: 0 1px #444; */
+  font-family: Consolas;
 }
 
 .article-entry pre code {
-  font-size: 14px
+  font-size: 15px
 }
 
 .article-entry table {
