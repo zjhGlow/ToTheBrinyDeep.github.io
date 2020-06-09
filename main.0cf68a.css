@@ -869,9 +869,9 @@ input,
 select,
 textarea {
   color: #1a1a1a;
-  font-family: lucida grande, lucida sans unicode, lucida, helvetica, Hiragino Sans GB, Microsoft YaHei, WenQuanYi Micro Hei, sans-serif;
+  font-family: Consolas, Microsoft YaHei;
   font-size: 16px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.75
 }
 
@@ -1125,7 +1125,7 @@ html {
   padding: 10px;
   overflow: auto;
   color: #fff;
-  font-size: 1.02em;
+  font-size: 0.98em;
   line-height: 22.400000000000002px
 }
 
@@ -2037,7 +2037,7 @@ pre .id {
   width: 14px;
   height: 14px;
   position: absolute;
-  top: 15px;
+  top: 17px;
   left: 1px;
   -webkit-transform: translateY(-50%);
   border-radius: 100%;
