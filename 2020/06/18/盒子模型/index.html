@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | ToTheBrinyDeep</title>
+  <title>盒子模型 | ToTheBrinyDeep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ToTheBrinyDeep">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+  <meta name="description" content="盒子模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="盒子模型">
+<meta property="og:url" content="http://yoursite.com/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/index.html">
 <meta property="og:site_name" content="ToTheBrinyDeep">
+<meta property="og:description" content="盒子模型">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/images/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B2.png">
+<meta property="og:image" content="http://yoursite.com/images/%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B2.png">
+<meta property="article:published_time" content="2020-06-18T08:53:59.261Z">
+<meta property="article:modified_time" content="2020-06-18T12:25:50.957Z">
 <meta property="article:author" content="ToTheBrinyDeep">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png">
   
     <link rel="alternative" href="/atom.xml" title="ToTheBrinyDeep" type="application/atom+xml">
   
@@ -138,209 +146,174 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-盒子模型" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      盒子模型
+    </h1>
+  
+
+        
+        <a href="/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
+  	<time datetime="2020-06-18T08:53:59.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h1><a id="more"></a>
+
+<h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><p>　　所谓盒子模型（Box Model）就是把HTML页面中的元素看作是一个矩形的盒子，也就是一个盛装内容的容器。</p>
+<p>　　每个矩形都由元素的<strong>内容(content)、内边距(padding)、边框(border)和外边距(margin)</strong>组成。</p>
+<p>　　所有的文档元素（标签）都会生成一个矩形框，我们成为元素框（element box），它描述了一个文档元素再网页布局汇总所占的位置大小。因此，每个盒子除了有自己大小和位置外，还影响着其他盒子的大小和位置。</p>
+<h2 id="二、实例"><a href="#二、实例" class="headerlink" title="二、实例"></a>二、实例</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">20px</span> solid black;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B.png" alt="img"></p>
+<h2 id="三、W3C盒子模型-标准盒模型-和IE盒子模型-怪异盒模型"><a href="#三、W3C盒子模型-标准盒模型-和IE盒子模型-怪异盒模型" class="headerlink" title="三、W3C盒子模型(标准盒模型)和IE盒子模型(怪异盒模型)"></a>三、W3C盒子模型(标准盒模型)和IE盒子模型(怪异盒模型)</h2><h3 id="W3C盒子模型-标准盒模型"><a href="#W3C盒子模型-标准盒模型" class="headerlink" title="W3C盒子模型(标准盒模型)"></a>W3C盒子模型(标准盒模型)</h3><p>根据 W3C 的规范，元素内容占据的空间是由 width 属性设置的，而内容周围的 padding 和 border 值是另外计算的</p>
+<p>即在标准模式下的盒模型，盒子实际内容（content）:</p>
+<p>　　&gt; <strong>width/height = 我们设置的 width/height</strong></p>
+<p>　　&gt; <strong>盒子总宽度/高度 = width/height + padding + border + margin</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">20px</span> solid black;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">box-sizing</span>: content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B2.png" alt="img"></p>
+<h3 id="IE盒子模型-怪异盒模型"><a href="#IE盒子模型-怪异盒模型" class="headerlink" title="IE盒子模型(怪异盒模型)"></a>IE盒子模型(怪异盒模型)</h3><p>在该模式下，浏览器的 width 属性不是内容的宽度，而是内容、内边距和边框的宽度的总和</p>
+<p>即在怪异模式下的盒模型，盒子的（content）:</p>
+<p>　　&gt; <strong>宽度+内边距padding+边框border宽度=我们设置的width(height也是如此)</strong></p>
+<p>　　&gt; <strong>盒子总宽度/高度=width/height + margin = 内容区宽度/高度 + padding + border + margin</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">200px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">20px</span> solid black;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/%E6%80%AA%E5%BC%82%E7%9B%92%E6%A8%A1%E5%9E%8B2.png" alt="img"></p>
+<h2 id="四、两种模式下如何解决样式的兼容性问题"><a href="#四、两种模式下如何解决样式的兼容性问题" class="headerlink" title="四、两种模式下如何解决样式的兼容性问题"></a>四、两种模式下如何解决样式的兼容性问题</h2><p>建议不要给元素添加具有指定宽度的内边距，而是尝试将内边距或外边距添加到元素的父元素和子元素。</p>
+<h2 id="五、CSS3指定盒子模型种类"><a href="#五、CSS3指定盒子模型种类" class="headerlink" title="五、CSS3指定盒子模型种类"></a>五、CSS3指定盒子模型种类</h2><p>box-sizing 属性允许您以特定的方式定义匹配某个区域的特定元素。</p>
+<blockquote>
+<p>box-sizing: content-box;//宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。<br>box-sizing: border-box;// 为元素设定的宽度和高度决定了元素的边框盒。就是说，为元素指定的任何内边距和边框都将在已设定的宽度和高度内进行绘制。通过从已设定的宽度和高度分别减去边框和内边距才能得到内容的宽度和高度。<br>box-sizing: inherit;// 规定应从父元素继承 box-sizing 属性的值。</p>
+</blockquote>
+<p>即box-sizing属性可以指定盒子模型种类，<strong>content-box指定盒子模型为W3C（标准盒模型），border-box为IE盒子模型（怪异盒模型）</strong>。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/%E5%BC%82%E6%AD%A5%E5%92%8C%E5%8D%95%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-06-04T12:51:42.452Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/%E5%BC%82%E6%AD%A5%E5%92%8C%E5%8D%95%E7%BA%BF%E7%A8%8B/">异步和单线程</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8F%8A%E9%97%AD%E5%8C%85/" class="archive-article-date">
-  	<time datetime="2020-06-04T12:51:22.809Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/17/%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">新特性</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%8F%8A%E9%97%AD%E5%8C%85/">作用域及闭包</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#盒子模型"><span class="toc-number">1.</span> <span class="toc-text">盒子模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、概念"><span class="toc-number">1.1.</span> <span class="toc-text">一、概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、实例"><span class="toc-number">1.2.</span> <span class="toc-text">二、实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、W3C盒子模型-标准盒模型-和IE盒子模型-怪异盒模型"><span class="toc-number">1.3.</span> <span class="toc-text">三、W3C盒子模型(标准盒模型)和IE盒子模型(怪异盒模型)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#W3C盒子模型-标准盒模型"><span class="toc-number">1.3.1.</span> <span class="toc-text">W3C盒子模型(标准盒模型)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IE盒子模型-怪异盒模型"><span class="toc-number">1.3.2.</span> <span class="toc-text">IE盒子模型(怪异盒模型)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、两种模式下如何解决样式的兼容性问题"><span class="toc-number">1.4.</span> <span class="toc-text">四、两种模式下如何解决样式的兼容性问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、CSS3指定盒子模型种类"><span class="toc-number">1.5.</span> <span class="toc-text">五、CSS3指定盒子模型种类</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/04/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/" class="archive-article-date">
-  	<time datetime="2020-06-04T10:00:58.513Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-04</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/04/%E5%8E%9F%E5%9E%8B%E4%B8%8E%E5%8E%9F%E5%9E%8B%E9%93%BE/">原型与原型链</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/06/01/C++%E7%BB%98%E5%88%B6%E8%8F%B1%E5%BD%A2/" class="archive-article-date">
-  	<time datetime="2020-06-01T01:12:32.906Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/06/01/C++%E7%BB%98%E5%88%B6%E8%8F%B1%E5%BD%A2/">C++绘制菱形</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/30/github%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8A%E4%BC%A0%E4%B8%8E%E7%94%9F%E6%88%90html%E9%A2%84%E8%A7%88/" class="archive-article-date">
-  	<time datetime="2020-05-30T02:45:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/30/github%E5%8F%AF%E8%A7%86%E5%8C%96%E4%B8%8A%E4%BC%A0%E4%B8%8E%E7%94%9F%E6%88%90html%E9%A2%84%E8%A7%88/">github可视化上传与生成html预览</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/29/%E4%B8%80/" class="archive-article-date">
-  	<time datetime="2020-05-29T02:57:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/29/%E4%B8%80/">一些知识点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/">« Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -364,8 +337,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
