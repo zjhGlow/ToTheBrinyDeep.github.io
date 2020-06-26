@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>ToTheBrinyDeep</title>
+  <title>JS继承详解 | ToTheBrinyDeep</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ToTheBrinyDeep">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="JS继承的几种实现方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS继承详解">
+<meta property="og:url" content="http://yoursite.com/2020/06/26/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/index.html">
 <meta property="og:site_name" content="ToTheBrinyDeep">
+<meta property="og:description" content="JS继承的几种实现方式">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-26T08:15:03.598Z">
+<meta property="article:modified_time" content="2020-06-26T13:19:20.519Z">
 <meta property="article:author" content="ToTheBrinyDeep">
 <meta name="twitter:card" content="summary">
   
@@ -138,16 +142,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-JS继承详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JS继承详解" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/26/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/">JS继承详解</a>
+    <h1 class="article-title" itemprop="name">
+      JS继承详解
     </h1>
   
 
@@ -160,10 +162,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JS继承的几种实现方式"><a href="#JS继承的几种实现方式" class="headerlink" title="JS继承的几种实现方式"></a>JS继承的几种实现方式</h1>
-        
-          <a class="article-more-a" href="/2020/06/26/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/#more">more >></a>
-        
+        <h1 id="JS继承的几种实现方式"><a href="#JS继承的几种实现方式" class="headerlink" title="JS继承的几种实现方式"></a>JS继承的几种实现方式</h1><a id="more"></a>
+
+<p>实现继承，首先要提供一个父类</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//父类</span></span><br><span class="line"><span class="comment">//定义一个动物类</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//属性</span></span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Animal'</span>;</span><br><span class="line">  <span class="comment">//实例方法</span></span><br><span class="line">  <span class="keyword">this</span>.sleep = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'正在睡觉！'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//原型方法</span></span><br><span class="line">Animal.prototype.eat = <span class="function"><span class="keyword">function</span>(<span class="params">food</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">'正在吃：'</span> + food);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一、原型链继承"><a href="#一、原型链继承" class="headerlink" title="一、原型链继承"></a>一、原型链继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//原型链继承</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line">Cat.prototype.name = <span class="string">'cat'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.eat(<span class="string">'fish'</span>));</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重点：</strong>让新实例的原型等于父类的实例<br><strong>特点：</strong>1、实例可继承的属性有：实例的构造函数的属性，父类构造函数属性，父类原型属性(新实例不会继承父类实例的属性)<br><strong>缺点：</strong><br>　　1、创建子类实例时，无法向父类构造函数传参<br>　　2、继承单一<br>　　3、所有新实例都会共享父类实例的属性(原型上的属性是共享的，一个实例修改了原型属性，另一个实例的原型属性也会被修改)</p>
+<h2 id="二、借用构造函数继承"><a href="#二、借用构造函数继承" class="headerlink" title="二、借用构造函数继承"></a>二、借用构造函数继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重点：</strong>用.call()和.apply()将父类构造函数引入子类函数（在子类函数中做了父类函数的自执行（复制））<br><strong>特点：</strong><br>　　1、只继承了父类构造函数的属性，没有继承父类原型的属性。<br>　　2、解决了原型链继承缺点1、2、3。<br>　　3、可以继承多个构造函数属性（call多个）。<br>　　4、在子实例中可向父实例传参。<br><strong>缺点：</strong><br>　　1、只能继承父类构造函数的属性和方法，不能继承原型属性和方法。<br>　　2、无法实现构造函数的复用。（每次用每次都要重新调用）<br>　　3、每个新实例都有父类构造函数的副本，臃肿。</p>
+<h2 id="三、组合继承（组合原型链继承和借用构造函数继承）"><a href="#三、组合继承（组合原型链继承和借用构造函数继承）" class="headerlink" title="三、组合继承（组合原型链继承和借用构造函数继承）"></a>三、组合继承（组合原型链继承和借用构造函数继承）</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line">Cat.prototype = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 组合继承也是需要修复构造函数指向的。</span></span><br><span class="line">Cat.prototype.constructor = Cat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>重点：</strong>结合了两种模式的优点，传参和复用<br><strong>特点：</strong><br>　　1、可以继承父类原型上的属性，可以传参，可复用。<br>　　2、每个新实例引入的构造函数属性是私有的。<br><strong>缺点：</strong>调用了两次父类构造函数（耗内存），生成了两份实例（子类实例将子类原型上的那份屏蔽了），子类的构造函数会代替原型上的那个父类构造函数。</p>
+<h2 id="四、原型式继承"><a href="#四、原型式继承" class="headerlink" title="四、原型式继承"></a>四、原型式继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 先封装一个函数容器，用来输出对象和承载继承的原型</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = obj;<span class="comment">// 继承了传入的参数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();<span class="comment">// 返回函数对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 拿到父类对象</span></span><br><span class="line"><span class="keyword">var</span> sup = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sub = object(sup);   <span class="comment">// 核心</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sub.name);</span><br><span class="line"><span class="built_in">console</span>.log(sub.eat(<span class="string">'something'</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>重点：</strong>用一个函数包装一个对象，然后返回这个函数的调用，这个函数就变成了个可以随意增添属性的实例或对象。object.create()就是这个原理。<br><strong>特点：</strong>类似于复制一个对象，用函数来包装。<br>缺点：<br>　　1、所有实例都会继承原型上的属性。<br>　　2、无法实现复用。（新实例属性都是后面添加的）</p>
+<h2 id="五、寄生式继承"><a href="#五、寄生式继承" class="headerlink" title="五、寄生式继承"></a>五、寄生式继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> F = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = obj;<span class="comment">// 继承了传入的参数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();<span class="comment">// 返回函数对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 拿到父类对象</span></span><br><span class="line"><span class="keyword">var</span> sup = <span class="keyword">new</span> Animal();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以上是原型式继承，给原型式继承再套个壳子传递参数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">subobject</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> sub = object(obj);</span><br><span class="line">    sub.name = <span class="string">"cat"</span>;</span><br><span class="line">    <span class="keyword">return</span> sub;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sub2 = subobject(sup);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sub2.name);</span><br><span class="line"><span class="built_in">console</span>.log(sub2.eat(<span class="string">'something'</span>));</span><br></pre></td></tr></table></figure>
+
+<p><strong>重点：</strong>就是给原型式继承外面套了个壳子。<br><strong>优点：</strong>没有创建自定义类型，因为只是套了个壳子返回对象（这个），这个函数顺理成章就成了创建的新对象。<br><strong>缺点：</strong>没用到原型，无法复用。</p>
+<h2 id="六、寄生组合式继承"><a href="#六、寄生组合式继承" class="headerlink" title="六、寄生组合式继承"></a>六、寄生组合式继承</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//继承父类属性</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  Animal.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="keyword">this</span>.name = name || <span class="string">'Tom'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//继承父类方法</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 创建一个没有实例方法的空类</span></span><br><span class="line">  <span class="keyword">let</span> Super = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">  Super.prototype = Animal.prototype;</span><br><span class="line">  <span class="comment">//将实例作为子类的原型</span></span><br><span class="line">  Cat.prototype = <span class="keyword">new</span> Super();</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">Cat.prototype.constructor = Cat; <span class="comment">// 需要修复下构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> Cat();</span><br><span class="line"><span class="built_in">console</span>.log(cat.name);</span><br><span class="line"><span class="built_in">console</span>.log(cat.sleep());</span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Animal); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(cat <span class="keyword">instanceof</span> Cat); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>核心：</strong>通过寄生方式，砍掉父类的实例属性，这样，在调用两次父类的构造的时候，就不会初始化两次实例方法/属性，避免的组合继承的缺点<br><strong>重点</strong>：修复了组合继承的问题</p>
+<h2 id="七、ES6继承"><a href="#七、ES6继承" class="headerlink" title="七、ES6继承"></a>七、ES6继承</h2><p>ES6引入了class，extends，super，static（部分为ES2016标准）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//class 相当于es5中构造函数</span></span><br><span class="line"><span class="comment">//class中定义方法时，前后不能加function，全部定义在class的protopyte属性中</span></span><br><span class="line"><span class="comment">//class中定义的所有方法是不可枚举的</span></span><br><span class="line"><span class="comment">//class中只能定义方法，不能定义对象，变量等</span></span><br><span class="line"><span class="comment">//class和方法内默认都是严格模式</span></span><br><span class="line"><span class="comment">//es5中constructor为隐式属性</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    eat() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name + <span class="string">' eat food'</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> staticTest() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">"static test"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//继承父类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">        <span class="comment">//继承父类属性</span></span><br><span class="line">        <span class="keyword">super</span>(name);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">this</span>.sex = <span class="string">"male"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    eat() &#123;</span><br><span class="line">        <span class="comment">//继承父类方法</span></span><br><span class="line">        <span class="keyword">super</span>.eat()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> cat = <span class="keyword">new</span> Cat(<span class="string">'Tom'</span>);</span><br><span class="line">cat.eat();</span><br><span class="line">Cat.staticTest();</span><br><span class="line">cat.staticTest();</span><br></pre></td></tr></table></figure>
+
+<p>ES6规定，Class内部只有静态方法，没有静态属性，ES7有一个静态属性的提案，目前Babel转码器支持<br>1）constructor为构造函数，一个类有一个，相当于es5中构造函数标准化，负责一些初始化工作，如果没有定义，js vm会定义一个空的默认的构造函数<br>2）实例方法，es6中可以不加”function”关键字，class内定义的所有函数都会置于该类的原型当中，所以，class本身只是一个语法糖<br>3）构造函数中通过super()调用父类构造函数，如果有super方法，需要时构造函数中第一个执行的语句，this关键字在调用super之后才可用<br>4）静态方法，在类定义的外部只能通过类名调用，内部可以通过this调用，并且静态函数是会被继承的。如示例中：staticTest是在Animal中定义的静态函数，可以通过Cat.staticTest()直接调用</p>
+
       
 
       
@@ -174,16 +200,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/26/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/06/26/JS%E7%BB%A7%E6%89%BF%E8%AF%A6%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">正则表达式</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -198,613 +283,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-06-18T13:20:52.236Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="正则表达式规则"><a href="#正则表达式规则" class="headerlink" title="正则表达式规则"></a>正则表达式规则</h1>
-        
-          <a class="article-more-a" href="/2020/06/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/18/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JS继承的几种实现方式"><span class="toc-number">1.</span> <span class="toc-text">JS继承的几种实现方式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、原型链继承"><span class="toc-number">1.1.</span> <span class="toc-text">一、原型链继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、借用构造函数继承"><span class="toc-number">1.2.</span> <span class="toc-text">二、借用构造函数继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、组合继承（组合原型链继承和借用构造函数继承）"><span class="toc-number">1.3.</span> <span class="toc-text">三、组合继承（组合原型链继承和借用构造函数继承）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、原型式继承"><span class="toc-number">1.4.</span> <span class="toc-text">四、原型式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、寄生式继承"><span class="toc-number">1.5.</span> <span class="toc-text">五、寄生式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、寄生组合式继承"><span class="toc-number">1.6.</span> <span class="toc-text">六、寄生组合式继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#七、ES6继承"><span class="toc-number">1.7.</span> <span class="toc-text">七、ES6继承</span></a></li></ol></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-盒子模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">盒子模型</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-06-18T08:53:59.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="盒子模型"><a href="#盒子模型" class="headerlink" title="盒子模型"></a>盒子模型</h1>
-        
-          <a class="article-more-a" href="/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/18/%E7%9B%92%E5%AD%90%E6%A8%A1%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-新特性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/17/%E6%96%B0%E7%89%B9%E6%80%A7/">新特性</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/17/%E6%96%B0%E7%89%B9%E6%80%A7/" class="archive-article-date">
-  	<time datetime="2020-06-17T07:30:04.850Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ES、HTML5、CSS3新特性"><a href="#ES、HTML5、CSS3新特性" class="headerlink" title="ES、HTML5、CSS3新特性"></a>ES、HTML5、CSS3新特性</h1>
-        
-          <a class="article-more-a" href="/2020/06/17/%E6%96%B0%E7%89%B9%E6%80%A7/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/17/%E6%96%B0%E7%89%B9%E6%80%A7/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JS常用速查" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/16/JS%E5%B8%B8%E7%94%A8%E9%80%9F%E6%9F%A5/">JS常用速查</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/16/JS%E5%B8%B8%E7%94%A8%E9%80%9F%E6%9F%A5/" class="archive-article-date">
-  	<time datetime="2020-06-16T07:18:23.837Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JS常用速查"><a href="#JS常用速查" class="headerlink" title="JS常用速查"></a>JS常用速查</h1>
-        
-          <a class="article-more-a" href="/2020/06/16/JS%E5%B8%B8%E7%94%A8%E9%80%9F%E6%9F%A5/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/16/JS%E5%B8%B8%E7%94%A8%E9%80%9F%E6%9F%A5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-笔面试" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/15/%E7%AC%94%E9%9D%A2%E8%AF%95/">笔面试</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/15/%E7%AC%94%E9%9D%A2%E8%AF%95/" class="archive-article-date">
-  	<time datetime="2020-06-15T12:10:23.033Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自己经历的笔面试"><a href="#自己经历的笔面试" class="headerlink" title="自己经历的笔面试"></a>自己经历的笔面试</h1>
-        
-          <a class="article-more-a" href="/2020/06/15/%E7%AC%94%E9%9D%A2%E8%AF%95/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/15/%E7%AC%94%E9%9D%A2%E8%AF%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-一道题完善前端知识体系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/13/%E4%B8%80%E9%81%93%E9%A2%98%E5%AE%8C%E5%96%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">一道题完善前端知识体系</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/13/%E4%B8%80%E9%81%93%E9%A2%98%E5%AE%8C%E5%96%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/" class="archive-article-date">
-  	<time datetime="2020-06-13T05:30:54.494Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="从输入URL到页面加载的过程，一道题完善自己的前端知识体系"><a href="#从输入URL到页面加载的过程，一道题完善自己的前端知识体系" class="headerlink" title="从输入URL到页面加载的过程，一道题完善自己的前端知识体系"></a>从输入URL到页面加载的过程，一道题完善自己的前端知识体系</h1>
-        
-          <a class="article-more-a" href="/2020/06/13/%E4%B8%80%E9%81%93%E9%A2%98%E5%AE%8C%E5%96%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/13/%E4%B8%80%E9%81%93%E9%A2%98%E5%AE%8C%E5%96%84%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-一套JS基础题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/%E4%B8%80%E5%A5%97JS%E5%9F%BA%E7%A1%80%E9%A2%98/">一套JS基础题</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/10/%E4%B8%80%E5%A5%97JS%E5%9F%BA%E7%A1%80%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2020-06-10T11:38:37.815Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript基础套题"><a href="#JavaScript基础套题" class="headerlink" title="JavaScript基础套题"></a>JavaScript基础套题</h1>
-        
-          <a class="article-more-a" href="/2020/06/10/%E4%B8%80%E5%A5%97JS%E5%9F%BA%E7%A1%80%E9%A2%98/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/10/%E4%B8%80%E5%A5%97JS%E5%9F%BA%E7%A1%80%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Vue基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/Vue%E5%9F%BA%E7%A1%80/">Vue基础</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/10/Vue%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-06-10T07:23:26.928Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Vue基础"><a href="#Vue基础" class="headerlink" title="Vue基础"></a>Vue基础</h1>
-        
-          <a class="article-more-a" href="/2020/06/10/Vue%E5%9F%BA%E7%A1%80/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Vue.js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/10/Vue%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-this详解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/06/10/this%E8%AF%A6%E8%A7%A3/">this详解</a>
-    </h1>
-  
-
-        
-        <a href="/2020/06/10/this%E8%AF%A6%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-06-10T00:12:10.948Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JavaScript中的this详解"><a href="#JavaScript中的this详解" class="headerlink" title="JavaScript中的this详解"></a>JavaScript中的this详解</h1>
-        
-          <a class="article-more-a" href="/2020/06/10/this%E8%AF%A6%E8%A7%A3/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/06/10/this%E8%AF%A6%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next »</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -827,8 +331,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
